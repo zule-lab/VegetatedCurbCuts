@@ -31,7 +31,38 @@ c(
     bee_raw, 
     'raw-data/bee-data-2024.csv',
     read.csv(!!.x)
-  )   
+  ),
+
+  tar_files(
+    temp_files,
+    dir('raw-data/temperature-data/', full.names = TRUE)
+    ),
+    
+    tar_target(
+      temp_raw, 
+      # skip problematic lines in dataset including column names
+      read_csv(temp_files, skip = 5, col_types = cols(.default = col_character()), col_names = F) %>%  
+        # add back in column names
+        rename(date_time = X1,
+               temp_F = X2,
+               rel_humidity_per = X3,
+               heat_index_F = X4,
+               dew_point_F = X5,
+               point_type = X6) %>% 
+        # add plot ID column based on file name 
+        mutate(InfrastructureID = str_extract(basename(xfun::sans_ext(temp_files)), "[^_]+")) %>%
+        # replace commas with decimals for numeric columns
+        mutate(across(c("temp_F", "rel_humidity_per", "heat_index_F", "dew_point_F"), ~as.numeric(str_replace(.x, ",", ".")))) %>% 
+        # remove unnecessary column 
+        select(-point_type),
+      pattern = map(temp_files)
+    ),
+
+    tar_file_read(
+      sites,
+      'raw-data/InfraVertes_2024.kml',
+      read_sf(!!.x)
+    )
   
   
 )

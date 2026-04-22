@@ -62,3 +62,7 @@ G2_per: percent cover of unidentified grass species 2 (%)
 G3_per: percent cover of unidentified grass species 3 (%)
 G4_per: percent cover of unidentified grass species 4 (%)
 
+dataset: InfraVertes_2024.kml
+This is the spatial dataset recorded in Google My Maps where we recorded the sites and assigned IDs.
+Name: individual ID assigned to each curb cut
+geometry: WGS 84 coordinates for each site
