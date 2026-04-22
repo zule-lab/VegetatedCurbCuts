@@ -1,7 +1,5 @@
 # === Targets -------------------------------------------------------------
 
-# install.packages(c('targets','renv'))
-
 # Source ------------------------------------------------------------------
 library(targets)
 tar_source('R')
@@ -25,13 +23,13 @@ c(
   
   tar_file_read(
     veg_raw,
-    'raw-data/donnees_vegetation.csv',
+    'raw-data/vegetative-data-2024.csv',
     read.csv(!!.x)
   ),
   
   tar_file_read(
-    paysage_raw, 
-    'raw-data/architecte_paysage.csv',
+    bee_raw, 
+    'raw-data/bee-data-2024.csv',
     read.csv(!!.x)
   )   
   

@@ -1,0 +1,5 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+bee_raw_file|stem|fe2cf91687d9aeca|8df71abb7d34f4f1|2c530c1562a7fbd1|433420275|raw-data/bee-data-2024.csv|t20565.6557945097s|s12777b|12777|file|local|vector|||0||
+veg_raw_file|stem|45b155fb4d7d3bd8|70a578ef8af2ed17|2c530c1562a7fbd1|-1914098211|raw-data/vegetative-data-2024.csv|t20565.642689414s|s5302b|5302|file|local|vector|||0||
+bee_raw|stem|f286b5b6c88d8699|0c6be4737e854bfa|a07cdfa423e0c238|-1288126305||t20565.6570355229s|s1340b|1340|qs|local|vector|||0||
+veg_raw|stem|0732c825678d8f7c|d4a927df7114a397|6c2407bae064e628|-2066385478||t20565.657035709s|s2269b|2269|qs|local|vector|||0||
