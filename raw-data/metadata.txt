@@ -39,26 +39,26 @@ tree_DBH: DBH of tree present in the curb cut (cm)
 veg_cover_per: estimated cover of all types of vegetation in the curb cut (%)
 veg_spon_per: estimated cover of spontaneous vegetation in the curb cut (%)
 food_per: estimated cover of human food provisioning vegetation in the curb cut (%). tree indicates that tree was food provisioning.
-EQAR_per: 
+EQAR_per: percent cover of Equisetum arvense (%)
 BAAU_per: percent cover of Baptisia australis 'Minor' (%)
 HEST_yellow_per: percent cover of Hemerocallis 'Stella d'Oro' (%)
 HEST_red_per: percent cover of Hemerocallis 'Stella in Red' (%)
 IRVE_per: percent cover of Iris versicolor (%)
 PELS_per: percent cover of Perovskia x 'Little Spire' (%)
-NEFA_per: percent cover of 
-SANE_per: 
-THPA_per: 
-JUEF_per: 
-ASSY_per: 
-ASIN_per: 
-CAGR_per: 
-ARME_per: 
-COST_per: 
-DILO_per: 
-ROCS_per: 
-SPBE_per: 
-G1_per: 
-G2_per:
-G3_per: 
-G4_per: 
+NEFA_per: percent cover of Nepeta x Faassinii 'Six Hill Giant' (%)
+SANE_per: percent cover of Salvia nemerosa 'Maybacht' (%)
+THPA_per: percent cover of Thelypteris palustris (%)
+JUEF_per: percent cover of Juncus effusus (%)
+ASSY_per: percent cover of Asclepias syriaca (%)
+ASIN_per: percent cover of Asclepias incarnata (%)
+CAGR_per: percent cover of Carex grayi (%)
+ARME_per: percent cover of Aronia melanocarpa 'Iroquoi Beauty' (%)
+COST_per: percent cover of Cornus stolonifera 'Kelseyi' (%)
+DILO_per: percent cover of Diervilla lonicera (%)
+ROCS_per: percent cover of Rosa 'Carefree Sunshine' (%)
+SPBE_per: percent cover of Spireae betufolia 'Tor' (%)
+G1_per: percent cover of unidentified grass species 1 (%)
+G2_per: percent cover of unidentified grass species 2 (%)
+G3_per: percent cover of unidentified grass species 3 (%)
+G4_per: percent cover of unidentified grass species 4 (%)
 
