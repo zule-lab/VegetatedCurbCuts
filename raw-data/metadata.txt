@@ -1,0 +1,64 @@
+This data and metadata accompanies the VegetatedCurbCuts project from the ZULE lab.
+
+dataset: temperature-data (folder) 
+In this folder, there are 40 data files. Each correspond to an individual curb cut and are labelled by the InfrastructureID. They contain the fixed-sensor temperature measurements. They all have the same format, as follows.
+Rows 1-3: describe the temperature sensor model, name, and serial number. 
+FORMATTED: date of data collection (yyyy-MM-dd)
+DATE_TIME: time of data collection (hh:mm:ss)
+Temperature: time of day (AM, PM)
+Relative: air temperature (Farenheit) 
+Humidity: relative humidity (%)
+Heat: heat index (Farenheit) 
+Index: dew point (Farenheit)
+Dew: data type 
+
+dataset: bee-data-2024.csv
+This dataset describes all the bee data we collected during our 2024 field season.
+InfrastructureID: individual ID assigned to each curb cut 
+Date: date of sampling (dd-mm-yyyy)
+Time: time when sampling began
+Samplers: initials of individuals who sampled the site 
+Notes: any specific notes about the site 
+Temperature: temperature at the time of recording as provided by Environment and Climate Change Canada's mobile app
+Wind: wind speed as provided by Environment and Climate Change Canada's mobile app (km/h)
+Width: width of the curb cut (metres) 
+Height: length of the curb cut (metres) 
+Interactions: number of times a bee interacted with (touched) vegetation in the curb cut area
+
+dataset: vegetative-data-2024.csv
+This dataset describes the vegetative data we collected in our 2024 field season.
+InfrastructureID: individual ID assigned to each curb cut
+Date: date of sampling (dd-mm-yyyy)
+Time: time when sampling began 
+Samplers: initials of individuals who sampled the site 
+Description: description of the site. if curb cut was longer than 7 m, we noted it here
+Length: length of the curb cut (m). if curb cut was longer than 7 m, we measured 3.5 m in either direction from the center of the site
+Width: width of the curb cut (m)
+tree_species: scientific name of tree present in curb cut 
+tree_DBH: DBH of tree present in the curb cut (cm)
+veg_cover_per: estimated cover of all types of vegetation in the curb cut (%)
+veg_spon_per: estimated cover of spontaneous vegetation in the curb cut (%)
+food_per: estimated cover of human food provisioning vegetation in the curb cut (%). tree indicates that tree was food provisioning.
+EQAR_per: 
+BAAU_per: percent cover of Baptisia australis 'Minor' (%)
+HEST_yellow_per: percent cover of Hemerocallis 'Stella d'Oro' (%)
+HEST_red_per: percent cover of Hemerocallis 'Stella in Red' (%)
+IRVE_per: percent cover of Iris versicolor (%)
+PELS_per: percent cover of Perovskia x 'Little Spire' (%)
+NEFA_per: percent cover of 
+SANE_per: 
+THPA_per: 
+JUEF_per: 
+ASSY_per: 
+ASIN_per: 
+CAGR_per: 
+ARME_per: 
+COST_per: 
+DILO_per: 
+ROCS_per: 
+SPBE_per: 
+G1_per: 
+G2_per:
+G3_per: 
+G4_per: 
+

@@ -1,0 +1,37 @@
+InfrastructureID,Date,Time,Samplers,Description,Length,Width,tree_species,tree_DBH,veg_cover_per,veg_spon_per,food_per,EQAR_per,BAAU_per,HEST_yellow_per,HEST_red_per,IRVE_per,PELS_per,NEFA_per,SANE_per,THPA_per,JUEF_per,ASSY_per,ASIN_per,CAGR_per,ARME_per,COST_per,DILO_per,ROCS_per,SPBE_per,G1_per,G2_per,G3_per,G4_per
+G1,11-06-2024,14:14,"KHT, EB, IR, CLG","across sidewalk from HST4, lots of flowering Sheperd's purse",7,1.9,,,95,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+G2,11-06-2024,16:37,"KHT, EB, IR, CLG",,7,2,,,90,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+G3,11-06-2024,16:20,"KHT, EB, IR, CLG",fire hydrant,5,1.8,,,95,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+G4,11-06-2024,15:35,"KHT, EB, IR, CLG","side patch, not on main road, lawn",7,2.1,,,95,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+G5,11-06-2024,16:10,"KHT, EB, IR, CLG",fire hydrant,7,3.2,,,100,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+GT1,11-06-2024,14:27,"KHT, EB, IR, CLG",> 7 m,7,4.7,Amelanchier canadensis,4.5+3.3+3.4,100,20,tree,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+GT2,11-06-2024,14:48,"KHT, EB, IR, CLG"," > 7 m, mulch added, mowed?",7,1.5,Amelanchier canadensis,7,50,90,tree,0,0,0,0,0,0,0,0,0,0,<5,0,0,0,0,0,0,0,10,0,0,0
+H1,11-06-2024,16:39,"KHT, EB, IR, CLG",,7,1.8,,,85,20,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,30,15,0,5
+H2,11-06-2024,15:10,"KHT, EB, IR, CLG","exactly 7 m, wide and deep",7,4.1,,,95,60,0,<5,45,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0
+H3,11-06-2024,16:27,"KHT, EB, IR, CLG",,7,4.2,,,95,,0,0,0,30,0,5,0,0,<5,0,0,0,0,0,0,0,0,0,0,0,15,0,20
+H4,11-06-2024,15:40,"KHT, EB, IR, CLG","> 7 m, burnt house, burnt plants",7,3.7,,,100,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,30,0,0,5,<5,0,5
+H5,11-06-2024,16:05,"KHT, EB, IR, CLG",backs onto green space,7,3.7,,,100,75,0,0,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0
+HS1,11-06-2024,14:07,"KHT, EB, IR, CLG","next to tree saillie, has wooden post",6.7,1.9,,,95,80,0,0,0,10,0,0,0,0,0,0,0,0,0,0,30,0,0,0,0,5,5,0,<5
+HS2,11-06-2024,14:32,"KHT, EB, IR, CLG",> 7 m,7,1.8,,,60,<5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,30,15,0,0,0
+HS3,11-06-2024,14:36,"KHT, EB, IR, CLG","> 7 m, very deep",7,3.85,,,100,20,0,75,25,0,0,0,0,0,0,0,0,0,0,5,0,0,10,0,0,0,0,<5,<5
+HS4,11-06-2024,15:21,"KHT, EB, IR, CLG","deep, with drain",7,4,,,95,40,0,40,35,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0,0,0,<5,0,0
+HS5,11-06-2024,15:44,"KHT, EB, IR, CLG",> 7 m slightly,7,3.9,,,100,35,0,40,0,15,0,< 5,0,0,0,0,0,<5,0,<5,0,5,10,0,0,0,20,0,30
+HST1,11-06-2024,13:38,"KHT, EB, IR, CLG",triangle,7,1.65,Acer tataricum,5.8+6.2,100,20,0,90,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,20,0,0,0
+HST2,11-06-2024,13:50,"KHT, EB, IR, CLG",continuous across multiple properties,7,2.05,Amelanchier canadensis,8.8,100,<5,tree,95,0,0,0,0,0,0,0,0,0,0,0,0,40,0,0,0,0,15,0,0,0
+HST3,11-06-2024,14:19,"KHT, EB, IR, CLG",right across from G1,7,2.3,Acer tataricum,7.8,100,25,0,10,0,0,0,0,0,0,10,0,0,5,0,0,40,0,0,0,0,20,10,0,10
+HST4,11-06-2024,15:54,"KHT, EB, IR, CLG",> 7 m + 0.5 (not big),7,1.8,Acer tataricum,7.2,90,15,0,0,0,0,0,0,10,0,5,0,0,<5,0,0,30,0,0,0,0,0,30,0,25
+HST5,11-06-2024,14:53,"KHT, EB, IR, CLG","triangle-esque, has two trees but only including area w 1",7,3,Acer tataricum,8.4,95,25,0,0,0,0,0,0,0,0,5,0,0,0,0,0,45,0,0,0,0,0,70,0,10
+HST6,11-06-2024,16:20,"KHT, EB, IR, CLG","beside a park, triangle",7,6.1,Celtis occidentalis,11.4,95,85,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,15,0,0,0,0,<5,0,0
+HST7,11-06-2024,15:32,"KHT, EB, IR, CLG",thistle,7,4.1,Amelanchier canadensis,5.7,100,90,tree,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0
+HST8,11-06-2024,16:15,"KHT, EB, IR, CLG",big shrubs,7,4.2,Celtis occidentalis,13.6,70,,0,<5,0,20,0,5,0,0,0,0,0,0,0,0,0,70,0,0,0,0,15,0,0
+HT1,11-06-2024,14:00,"KHT, EB, IR, CLG","divided by two stairs, smaller section",4.5,2.1,Acer tataricum,8.3,0,0,0,0,0,0,0,0,0,0,0,0,0,<5,0,0,0,0,0,0,0,5,0,0,5
+HT2,11-06-2024,16:51,"KHT, EB, IR, CLG",small honeysuckle counted as veg,7,1.9,Acer freemani,17.5,90,15,0,0,0,0,0,<5,0,0,0,0,0,<5,0,0,0,0,75,0,0,0,35,0,0
+HT3,11-06-2024,16:42,"KHT, EB, IR, CLG",rose is tiny,7,1.9,Acer freemani,15.8,70,15,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,10,0,25,15,0,<5
+HT4,11-06-2024,16:31,"KHT, EB, IR, CLG",park behind,7,4.5,Acer freemani,17.6,95,70,0,0,0,5,0,0,0,0,0,<5,0,0,0,0,0,0,0,0,0,0,15,0,5
+HT5,11-06-2024,15:49,"KHT, EB, IR, CLG",> 7m,7,3.9,Acer tataricum,8.4,100,50,0,0,20,0,0,<5,0,0,0,0,0,0,0,0,0,0,15,0,0,0,10,0,5
+HT6,12-06-2024,15:12,KHT,"> 7 m, flat no culvert",7,1.9,Acer freemani,14.6,85,<5,0,0,0,0,0,0,0,70,0,0,0,<5,0,0,0,0,0,0,0,30,10,0,0
+HT7,11-06-2024,16:46,"KHT, EB, IR, CLG",small honeysuckle counted as veg,7,4.5,,,80,20,40,0,0,0,0,0,0,0,0,0,0,0,0,<5,0,0,40,0,0,0,30,0,<5
+ST1,11-06-2024,14:27,"KHT, EB, IR, CLG",,4.8,1.7,Acer tataricum,6.7,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0
+ST2,11-06-2024,14:29,"KHT, EB, IR, CLG","not separated by cement, grass/herb on each side of shrub",4.65,1.7,Acer tataricum,9.6,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0
+ST3,11-06-2024,15:28,"KHT, EB, IR, CLG",small amount of herbaceous but negligible,7,3.7,Acer tataricum,5.5,,,0,0,0,0,0,0,0,0,<5,0,0,0,0,0,0,0,40,0,45,5,5,0,5
+ST4,11-06-2024,15:37,"KHT, EB, IR, CLG",has grass but we cut it off from side,4.7,1.6,Acer tataricum,7.4,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0
