@@ -50,7 +50,7 @@ c(
                dew_point_F = X5,
                point_type = X6) %>% 
         # add plot ID column based on file name 
-        mutate(InfrastructureID = str_extract(basename(xfun::sans_ext(temp_files)), "[^_]+")) %>%
+        mutate(InfrastructureID = str_replace(basename(xfun::sans_ext(temp_files)), ".*_", '')) %>%
         # replace commas with decimals for numeric columns
         mutate(across(c("temp_F", "rel_humidity_per", "heat_index_F", "dew_point_F"), ~as.numeric(str_replace(.x, ",", ".")))) %>% 
         # remove unnecessary column 
@@ -62,7 +62,28 @@ c(
       sites,
       'raw-data/InfraVertes_2024.kml',
       read_sf(!!.x)
+    ),
+
+    tar_target(
+      temp_clean, 
+      clean_temp(temp_raw, sites)
     )
-  
+    
+    #zar_brms(
+    #  temp_veg_pres,
+    #  formula = temp_C_s ~ 1 + type + tod + doy + type:tod + type:doy + tod:doy + (1 | date) + (1 | InfrastructureID),
+    #    family = gaussian(),
+    #    prior = c( 
+    #      prior(normal(0, 0.5), class = "b"),
+    #      prior(normal(0, 1), class = "Intercept"),
+    #      prior(exponential(1), class = "sd"),
+    #      prior(exponential(1), class = "sigma")
+    #    ),
+    #    backend = 'cmdstanr',
+    #    data = ecosystem_services[[1]] %>% filter(city == "Trois-Rivières"),
+    #    chains = 4,
+    #    iter = 2000,
+    #    cores = 4
+    #)
   
 )
