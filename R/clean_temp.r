@@ -1,8 +1,7 @@
 clean_temp <- function(temp_raw, sites){
 
-    
   # convert from farenheit to celsius 
-  temp_cel <- temp_geom %>% 
+  temp_cel <- temp_raw %>% 
     mutate(temp_F = str_replace_all(temp_F, ',', '.'), 
            heat_index_F = str_replace_all(heat_index_F, ',', '.'), 
            dew_point_F = str_replace_all(dew_point_F, ',', '.'), 
@@ -23,19 +22,20 @@ clean_temp <- function(temp_raw, sites){
   
   temp_date <- rbind(dt_am, dt_24)
   
-  # select for study period Jun 28 17:00 - Jul 25 9:00 for mtl / Aug 8 17:00 - Oct 3 9:00 for tr
+  # select for study period Jun 11 12:00 - Aug 8 9:00 
   temp_study <- temp_date %>% 
-    filter(date_time > "2023-06-28 17:00:00 EDT" & date_time < "2023-10-03 9:00:00 EDT") %>% 
-    filter(date_time < "2023-07-25 9:00:00 EDT" | date_time > "2023-08-08 17:00:00 EDT")
+    filter(date_time > "2024-06-11 12:00:00 EDT" & date_time < "2024-08-08 9:00:00 EDT")
   
   # calculate daytime hours
-  temp_coords <- st_as_sf(temp_study) %>% 
-    st_centroid() %>% 
-    st_transform(4326) %>%
-    mutate(date = date(date_time),
-           doy = yday(date),
-           lon = st_coordinates(geometry)[,1],
-           lat = st_coordinates(geometry)[,2])
+   temp_coords <- temp_study %>% 
+     left_join(., sites %>% select(c(Name, geometry)), by = join_by(InfrastructureID == Name)) %>% 
+     st_as_sf() %>% 
+     st_centroid() %>% 
+     st_transform(4326) %>%
+     mutate(date = date(date_time),
+            doy = yday(date),
+            lon = st_coordinates(geometry)[,1],
+            lat = st_coordinates(geometry)[,2])
   
   # calculate for each entry if it is during the daytime or nighttime based on the tod + sunrise/sunset
   temp_tod <- temp_coords %>% 
