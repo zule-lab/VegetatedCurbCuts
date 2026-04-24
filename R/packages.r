@@ -7,12 +7,10 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(lubridate)
 library(xfun)
 
 library(sf)
 
 library(lares)
-
-#library(lares)
-#library(geodata)
-#library(lubridate)
+library(suncalc)
