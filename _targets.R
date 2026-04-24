@@ -32,6 +32,12 @@ c(
     'raw-data/bee-data-2024.csv',
     read.csv(!!.x)
   ),
+  
+  tar_file_read(
+    mobile_raw,
+    'raw-data/CR300Series_2_seconds_jun14.dat',
+    read.table(!!.x, header = TRUE, skip = 1, sep =',', stringsAsFactors = FALSE)
+  ),
 
   tar_files(
     temp_files,
@@ -67,7 +73,12 @@ c(
     tar_target(
       temp_clean, 
       clean_temp(temp_raw, sites)
-    )
+    ),
+  
+  tar_target(
+    mobile_clean, 
+    clean_mobile(mobile_raw)
+  )
     
     #zar_brms(
     #  temp_veg_pres,
