@@ -66,3 +66,19 @@ dataset: InfraVertes_2024.kml
 This is the spatial dataset recorded in Google My Maps where we recorded the sites and assigned IDs.
 Name: individual ID assigned to each curb cut
 geometry: WGS 84 coordinates for each site
+
+dataset: CR300_Series_2_seconds_jun14.dat
+This is the temperature dataset provided by the mobile sensor which we used for one test run.
+rows 1: describes the temperature sensor used 
+rows 2-4: unformatted descriptions of the data. column names are taken from row 2.
+TIMESTAMP: date/time of recording (yyyy-mm-dd hh-mm-ss)
+RECORD: unique ID assigned to each data point 
+BattV: battery voltage 
+PTempC: air temperature (degrees Celsius) 
+NMEASent(1): coordinates of data point 
+NMEASent(2): coordinates of data point
+Latitude_A: latitude of point A (dec deg) 
+Latitude_B: latitude of point B (dec deg) 
+Longitude_A: longitude of point A (dec deg)
+Longitude_B: longitude of point B (dec deg)
+
