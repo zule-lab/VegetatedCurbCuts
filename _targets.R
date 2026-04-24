@@ -35,7 +35,7 @@ c(
   
   tar_file_read(
     mobile_raw,
-    'raw-data/CR300Series_2_seconds_jun14.dat',
+    'raw-data/CR350Series_seconds.dat',
     read.table(!!.x, header = TRUE, skip = 1, sep =',', stringsAsFactors = FALSE)
   ),
 
