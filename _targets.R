@@ -9,7 +9,7 @@ tar_source('R')
 # Options -----------------------------------------------------------------
 # Targets
 tar_option_set(format = 'qs')
-options(timeout=100)
+options(timeout = 100)
 
 
 # Renv --------------------------------------------------------------------
@@ -86,7 +86,7 @@ c(
   ),
 
   zar_brms(
-    temp_veg_pres,
+    temp_pres,
     formula = temp_C_s ~ 1 + type + tod + doy + type:tod + type:doy + tod:doy + (1 | date) + (1 | InfrastructureID),
     family = gaussian(),
     prior = c(
@@ -100,6 +100,38 @@ c(
       chains = 4,
       iter = 2000,
       cores = 4
+    ),
+
+    zar_brms(
+    temp_config,
+    formula = temp_C_s ~ 1 + config + tod + doy + config:tod + config:doy + tod:doy + (1 | date) + (1 | InfrastructureID),
+    family = gaussian(),
+    prior = c(
+      prior(normal(0, 0.5), class = "b"),
+      prior(normal(0, 1), class = "Intercept"),
+      prior(exponential(1), class = "sd"),
+      prior(exponential(1), class = "sigma")
+      ),
+      backend = 'cmdstanr',
+      data = model_data[['temp_fixed']],
+      chains = 4,
+      iter = 2000,
+      cores = 4
+    ),
+
+    zar_brms(
+      bees_config,
+      formula = Interactions ~ 1 + config,
+      family = negbinomial(),
+      prior = c(
+        prior(normal(0, 0.2), class = "b"),
+        prior(normal(0, 0.5), class = "Intercept"),
+        prior(normal(0, 0.1), class = "sd")
+      ),
+      backend = 'cmdstanr',
+      data = model_data[['veg']],
+      chains = 4,
+      iter = 1000,
+      cores = 4
     )
-  
 )
