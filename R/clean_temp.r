@@ -47,4 +47,6 @@ clean_temp <- function(temp_raw, sites){
                            date_time < sunrise | date_time > sunset ~ 'night')) %>% 
     select(-c(sunrise, sunset, date, lat, lon))
 
+    return(temp_tod)
+
 }

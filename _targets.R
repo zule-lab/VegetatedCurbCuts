@@ -78,23 +78,28 @@ c(
   tar_target(
     mobile_clean, 
     clean_mobile(mobile_raw)
-  )
-    
-    #zar_brms(
-    #  temp_veg_pres,
-    #  formula = temp_C_s ~ 1 + type + tod + doy + type:tod + type:doy + tod:doy + (1 | date) + (1 | InfrastructureID),
-    #    family = gaussian(),
-    #    prior = c( 
-    #      prior(normal(0, 0.5), class = "b"),
-    #      prior(normal(0, 1), class = "Intercept"),
-    #      prior(exponential(1), class = "sd"),
-    #      prior(exponential(1), class = "sigma")
-    #    ),
-    #    backend = 'cmdstanr',
-    #    data = ecosystem_services[[1]] %>% filter(city == "Trois-Rivières"),
-    #    chains = 4,
-    #    iter = 2000,
-    #    cores = 4
-    #)
+  ),
+
+  tar_target(
+    model_data,
+    clean_model_data(veg_raw, bee_raw, temp_clean, mobile_clean)
+  ),
+
+  zar_brms(
+    temp_veg_pres,
+    formula = temp_C_s ~ 1 + type + tod + doy + type:tod + type:doy + tod:doy + (1 | date) + (1 | InfrastructureID),
+    family = gaussian(),
+    prior = c(
+      prior(normal(0, 0.5), class = "b"),
+      prior(normal(0, 1), class = "Intercept"),
+      prior(exponential(1), class = "sd"),
+      prior(exponential(1), class = "sigma")
+      ),
+      backend = 'cmdstanr',
+      data = model_data[['temp_fixed']],
+      chains = 4,
+      iter = 2000,
+      cores = 4
+    )
   
 )
