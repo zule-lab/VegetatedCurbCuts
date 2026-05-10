@@ -1,0 +1,86 @@
+---
+title: "Title: Vegetated Curb Cuts Model Diagnostics"
+format:
+  pdf:
+    fig-width: 12
+    fig-height: 14
+---
+
+
+```{r, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+source('R/packages.R')
+
+model_list <- tar_read(model_list)
+
+plot_model_1 <- function(model){
+    
+    # basic model fit plots
+    b <- mcmc_trace(model, pars = vars(starts_with('b_'), Intercept, any_of('sigma'), any_of(c(starts_with('sd_')))))
+  
+    # Gelman plot
+    ac <- as_draws_df(model) %>% 
+      mutate(chain = .chain) %>% 
+      mcmc_acf(pars = vars(b_Intercept), lags = 35)
+    
+    b / ac + 
+      plot_layout(ncol = 1, heights = c(3,1)) 
+}
+
+plot_model_2 <- function(model){
+    # rhat values
+    rhats <- brms::rhat(model)
+    rh <- mcmc_rhat(rhats)
+    
+    # neff 
+    ratios_cp <- neff_ratio(model)
+    neff <- mcmc_neff(ratios_cp, size = 2)
+    
+    # posterior check
+    pp <- pp_check(model, ndraws = 100)
+    
+    
+    rh / neff / pp + 
+      plot_layout(ncol = 1) 
+
+
+  }
+```
+
+## Model Diagnostic Plots
+
+These model diagnostic plots assess whether the chains of our models are converged and well mixed, and if the model is well specified and has an adequate fit.
+
+The first plot of the series shows trace plots for each of our parameters, where we want to see stationary and well-mixed chains. The second plot shows an autocorrelation plot by chain and parameter. We want our autocorrelation to quickly drop to zero with increasing lag. Thirdly, the Rhat plot monitors whether a chain has converged to the equilibrium distribution, if all chains are at equilibrium Rhat will be one. If chains have not converged, Rhat will be greater than 1. The fourth plot is the ratio between effective sample size (Neff) and total sample size (N).Because the draws within a Markov chain are not independent if there is autocorrelation, the effective sample size, neff, is usually smaller than the total sample size, N. The larger the ratio, the better. Finally, we have the posterior predictive check where we want the black line to be within/close to the blue lines, to indicate that our model is adequately generative.
+
+
+## Model 1: Temperature Presence / Absence
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- model_list['temp_pres']
+plot_model_1(mod[[1]])
+plot_model_2(mod[[1]])
+```
+
+## Model 2: Temperature Design
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- model_list['temp_config']
+plot_model_1(mod[[1]])
+plot_model_2(mod[[1]])
+```
+
+## Model 3: Bees Design
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- model_list['bees_config']
+plot_model_1(mod[[1]])
+plot_model_2(mod[[1]])
+```
+
+## Model 4: Veg Design
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- model_list['veg_config']
+plot_model_1(mod[[1]])
+plot_model_2(mod[[1]])
+```

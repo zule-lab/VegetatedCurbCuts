@@ -1,0 +1,124 @@
+---
+title: "Title: Vegetated Curb Cuts Prior Checks"
+format:
+  pdf:
+    fig-width: 12
+    fig-height: 14
+---
+
+
+```{r, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+source('R/packages.R')
+
+prior_model_list <- tar_read(model_list_prior)
+
+
+plot_prior <- function(mod, xmin, xmax, ylab){
+  
+  # how to sequence data
+  seq_d <- seq(xmin, xmax, by = 0.25)
+  
+  # pull variables from model 
+  vars <- colnames(mod$data)[-1]
+  
+  # identify categorical variables 
+  factors <- names(Filter(is.factor ,mod$data[-1]))
+  # remove any that are random effects 
+  factors <- factors[! factors %in% mod$ranef$group]
+  
+  # identify numeric variables 
+  numeric <- names(Filter(is.numeric,mod$data[-1]))
+  #numeric <- subset(numeric, numeric != "total_trees" & numeric != "n")
+  
+  figlist <- lapply(numeric, function(x){
+    
+    df <- data.frame(matrix(ncol=length(vars),nrow=0, dimnames=list(NULL, vars)))
+    
+    df %<>%
+      summarise_at(x, ~seq_d) %>% 
+      bind_rows(df, .) %>% 
+      mutate(across(all_of(factors), as.factor)) %>% 
+      mutate(across(all_of(numeric), ~ replace(., is.na(.), 0))) %>%
+      distinct() 
+    
+    epred <- add_epred_draws(df, mod, re_formula = NA)
+    
+    ggplot(epred, aes(x = get(x), y = .epred)) +
+      geom_line(aes(group = .draw), alpha = 0.1) +
+      labs(y = ylab, x = x) +
+      theme_classic()
+    
+  })
+  
+  # make data grid appropriate for each model
+  if (length(factors) == 1) {
+     md <- data_grid(mod$data, 
+                    PastLandUse,
+                    .model = mod)
+  }
+  
+  
+  cat_figlist <- lapply(factors, function(x){
+    
+    
+    df <- data.frame(matrix(ncol=length(numeric),nrow= nrow(md), dimnames=list(NULL, numeric))) %>% 
+      cbind(., md) %>% 
+      mutate(across(all_of(numeric), ~ replace(., is.na(.), 0)),
+             total_trees = 50,
+             n = 50) %>% 
+      add_epred_draws(mod, re_formula = NA)  %>% 
+      ggplot(aes(x = .epred, y = get(x))) +
+      geom_jitter(alpha = 0.2, colour = 'darkgrey') +
+      geom_boxplot(outlier.shape = NA, alpha = 0, linewidth = 1) +
+      coord_flip() + 
+      labs(x = ylab, y = "") + 
+      theme_classic()
+    
+  
+  })
+  
+  list <- c(figlist, cat_figlist)
+  
+  
+}
+```
+
+## Prior Predictive Checks
+
+Prior predictive checks are used to ensure that the values selected for priors for our models allow a biologically reasonable range of values. For models with fixed effects fit to the model (models 1 and 5), we simulate predictive draws for prior only models and visualize the slope/intercept of the values. We then do a "posterior predictive check" but with the prior only model, to see if the data is captured in the priors. For models with only random effects, we only use the posterior predictive check.
+
+## Model 1: Temperature presence
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- prior_model_list['temp_pres_prior']
+figs <- plot_prior(mod[[1]], -3, 3, "Temperature")
+
+invisible(capture.output(wrap_plots(figs, nrow = 1, ncol = 2)))
+```
+
+## Model 2: Temperature design
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- prior_model_list['temp_config_prior']
+figs <- plot_prior(mod[[1]], -3, 3, "Temperature")
+
+invisible(capture.output(wrap_plots(figs, nrow = 1, ncol = 1)))
+```
+
+## Model 3: Bees design
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- prior_model_list['bees_config_prior']
+figs <- plot_prior(mod[[1]], -3, 3, "Bee Interactions")
+
+invisible(capture.output(wrap_plots(figs, nrow = 1, ncol = 1)))
+```
+
+## Model 4: Vegetative design
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+mod <- prior_model_list['veg_config_prior']
+figs <- plot_prior(mod[[1]], -3, 3, "Spontaneous Veg (%)")
+
+invisible(capture.output(wrap_plots(figs, nrow = 1, ncol = 1)))
+```
