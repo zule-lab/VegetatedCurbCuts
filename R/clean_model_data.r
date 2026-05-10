@@ -5,8 +5,8 @@ clean_model_data <- function(veg_raw, bee_raw, temp_clean, mobile_clean){
 
  temp_type <- temp_clean %>%  
                 mutate(type = case_when(str_detect(InfrastructureID, 'C') == T ~ 'Control',
-                       config = str_sub(InfrastructureID, end = -2),
                                         .default = "Vegetated"),
+                       config = str_sub(InfrastructureID, end = -2),
                        date = as.Date(date_time),
                        temp_C_s = scale(temp_C)[,1]) %>% 
                 drop_na(temp_C_s) %>% 
